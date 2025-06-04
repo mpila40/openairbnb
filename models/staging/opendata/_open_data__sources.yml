@@ -4,4 +4,4 @@ sources:
     database: airbnb_bronze
     schema: airbnb_open_data
     tables:
-      - name: file-data
+      - name: file_data
