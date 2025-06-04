@@ -2,5 +2,6 @@ version: 2
 sources:
   - name: airbnb
     database: airbnb_bronze
-    schema: 
-      tables:
+    schema: airbnb_open_data
+    tables:
+      - name: file-data
