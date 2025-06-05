@@ -1,0 +1,133 @@
+version: 2
+
+models:
+  - name: stg_host
+    description: "The host is the owner or authorized manager of a property"
+    columns:
+      - name: host_id
+        data_type: varchar
+        description: "Airbnb's unique identifier for the host"
+
+      - name: host_name
+        data_type: varchar
+        description: "Name of the host. Usually just the first name(s)"
+
+      - name: identity_verified
+        data_type: varchar
+        description: "The attribute to know wether a host is verified"
+
+      - name: number_of_listing
+        data_type: number
+        description: "The number of listings the host has (per Airbnb calculations)"
+
+  - name: stg_list_property
+    description: "The listing property in Airbnb"
+    columns:
+      - name: id
+        data_type: varchar
+        description: "Airbnb's unique identifier for the listing"
+
+      - name: name
+        data_type: varchar
+        description: "Name of the listing"
+
+      - name: room_type
+        data_type: varchar
+        description: >
+         [Entire home/apt|Private room|Shared room|Hotel]
+         All homes are grouped into the following three room types:
+         Entire place
+         Private room
+         Shared room
+
+      - name: construction_year
+        data_type: number
+        description: "The year of the property's construction"
+
+      - name: license
+        data_type: varchar
+        description: "The licence/permit/registration number"
+
+      - name: availability_365
+        data_type: number
+        description: >
+          The availability of the listing x days in the future as determined by the calendar.
+
+      - name: cancellation_policy
+        data_type: varchar
+        description: >
+          The policy of cancellation
+          
+
+      - name: house_rules
+        data_type: varchar
+        description: "The rule of the property"
+
+      - name: is_instant_bookable
+        data_type: varchar
+        description: >
+          Whether the guest can automatically book the listing without
+          the host requiring to accept their booking request.
+
+      - name: minimum_nights
+        data_type: number
+        description: >
+          minimum number of night stay for the listing.
+
+      - name: price
+        data_type: number
+        description: "Price in local currency"
+
+      - name: service_fee
+        data_type: number
+        description: "The fee that Airbnb platform gain"
+
+  - name: stg_location
+    description: "The location of the property"
+    columns:
+      - name: country
+        data_type: varchar
+        description: "The country. Majority in USA"
+
+      - name: country_code
+        data_type: varchar
+        description: "The code of the country (US)"
+
+      - name: latitud
+        data_type: float
+        description: "Uses the World Geodetic System (WGS84) projection for latitude."
+
+      - name: longitud
+        data_type: float
+        description: "Uses the World Geodetic System (WGS84) projection for longitude."
+
+      - name: neighbourhood
+        data_type: varchar
+        description: "The neighbourhood of listing"
+
+      - name: neighbourhood_group
+        data_type: varchar
+        description: >
+          The neighbourhood group as geocoded using the latitude and longitude
+          
+
+  - name: stg_review
+    description: "The review for each listing"
+    columns:
+      - name: last_review
+        data_type: date
+        description: "The date of the last/newest review"
+
+      - name: number_of_review
+        data_type: number
+        description: "The number of reviews the listing has"
+
+      - name: review_rate
+        data_type: number
+        description: "The average review rating score of listing"
+
+      - name: monthly_reviews
+        data_type: float
+        description: "The number of reviews the listing has over the lifetime of the listing"
+
+  
