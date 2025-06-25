@@ -1,7 +1,7 @@
 -- generating dates using dbt_utils package
 with dates_raw as (
  {{ dbt_utils.date_spine(datepart="day",
-    start_date="cast('2010-01-01' as date)",
+    start_date="cast('2000-01-01' as date)",
     end_date="dateadd(year, 2, current_date())"
     ) 
     }}

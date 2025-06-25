@@ -6,7 +6,7 @@ with base_src as (
         lat,
         long,
         neighbourhood,
-        "neighbourhood group"
+        neighbourhood_group
     from {{ ref("base_airbnb_open_data") }}
 ),
 renamed_casted as (
@@ -17,7 +17,7 @@ renamed_casted as (
         lat as latitud,
         long as longitud,
         neighbourhood::varchar(250) as neighbourhood,
-        "neighbourhood group"::varchar(250) as neighbourhood_group
+        neighbourhood_group::varchar(250) as neighbourhood_group
     from base_src
 ),
 

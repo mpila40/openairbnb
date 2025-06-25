@@ -16,14 +16,29 @@ host as (
 ),
 
 review as (
-    select 
-        review.*,
-        listing.*
-    from  {{ref('stg_review')}} review
-    left join listing
-    on review.listing_id = listing.id
+    select *
+    from {{ref('stg_review')}}
 
+),
+dates as (
+    select *
+    from {{ ref('stg_date')}}
 )
 
-select *
+select
+    listing.listing_id,
+    host.host_id,
+    dates.date_day as review_date_id,
+
+    -- Metrics
+     review_rate,
+     number_of_review,
+     monthly_reviews
+
+
+
+
 from review
+left join listing   on review.listing_id = listing.listing_id
+left join host      on listing.host_id = host.host_id
+left join dates     on review.last_review = dates.date_day
