@@ -20,11 +20,12 @@ renamed_casted as (
 -- assign a default date or -1 value if find null'
 handle_null as (
     select
-        {{dbt_utils.generate_surrogate_key(['listing_id'])}} as listing_id,
+        {{dbt_utils.generate_surrogate_key(['listing_id','last_review'])}} as review_id,
+        {{ dbt_utils.generate_surrogate_key(['listing_id'])}} as listing_id,
         {{ handle_null("last_review","'2000-01-01'") }} as last_review,
-        {{ handle_null("number_of_review","-1") }} as number_of_review,
-        {{ handle_null("review_rate","-1") }} as review_rate,
-        {{ handle_null("monthly_reviews","-1") }} as monthly_reviews,
+        {{ handle_null("number_of_review","0") }} as number_of_review,
+        {{ handle_null("review_rate","0") }} as review_rate,
+        {{ handle_null("monthly_reviews","0") }} as monthly_reviews,
     from renamed_casted
 )
 

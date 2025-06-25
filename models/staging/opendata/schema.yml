@@ -23,9 +23,11 @@ models:
   - name: stg_list_property
     description: "The listing property in Airbnb"
     columns:
-      - name: id
+      - name: listing_id
         data_type: varchar
         description: "Airbnb's unique identifier for the listing"
+        data_tests:
+          - unique
 
       - name: name
         data_type: varchar
